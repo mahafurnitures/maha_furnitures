@@ -1,0 +1,244 @@
+/* Showrooms & Branches Section */
+.branches-section {
+  padding: 100px 0;
+  background-color: white;
+  position: relative;
+  z-index: 5;
+}
+
+.branches-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.branch-card {
+  background: #f8fbf9;
+  border: 1px solid rgba(7, 92, 0, 0.08);
+  border-radius: var(--radius-cards);
+  overflow: hidden;
+  box-shadow: var(--shadow-premium);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.branch-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(7, 92, 0, 0.2);
+  box-shadow: 0 15px 35px rgba(7, 92, 0, 0.08);
+}
+
+.branch-image-wrapper {
+  position: relative;
+  height: 240px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.branch-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.branch-card:hover .branch-img {
+  transform: scale(1.05);
+}
+
+.branch-tag {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  background: var(--color-primary);
+  color: white;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 6px 12px;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.branch-details {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.branch-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.branch-name {
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: var(--color-primary);
+  text-transform: uppercase;
+}
+
+.branch-year {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-accent);
+  background: rgba(7, 92, 0, 0.08);
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.branch-address {
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  line-height: 22px;
+  color: var(--color-text-secondary);
+  margin-bottom: 20px;
+}
+
+.branch-info-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 28px;
+  border-top: 1px solid rgba(7, 92, 0, 0.06);
+  padding-top: 16px;
+}
+
+.branch-info-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.info-icon {
+  color: var(--color-primary);
+}
+
+.info-link {
+  font-weight: 700;
+  color: var(--color-text-primary);
+  transition: color 0.2s ease;
+}
+
+.info-link:hover {
+  color: var(--color-primary);
+}
+
+.branch-actions {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.btn-branch-direction {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--color-primary);
+  color: white !important;
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  padding: 12px 16px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(7, 92, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.btn-branch-direction:hover {
+  background-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+.btn-branch-call {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: transparent;
+  color: var(--color-primary) !important;
+  border: 1.5px solid var(--color-primary);
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  padding: 10.5px 16px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.btn-branch-call:hover {
+  background-color: rgba(7, 92, 0, 0.05);
+  transform: translateY(-2px);
+}
+
+/* Branches on Mobile */
+@media (max-width: 768px) {
+  .branches-section {
+    padding: 60px 0;
+  }
+
+  .branches-grid {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+    gap: 28px;
+  }
+
+  .branch-image-wrapper {
+    height: 180px;
+  }
+
+  .branch-details {
+    padding: 20px;
+  }
+
+  .branch-name {
+    font-size: 18px;
+  }
+
+  .branch-address {
+    font-size: 13.5px;
+    line-height: 20px;
+    margin-bottom: 16px;
+  }
+
+  .branch-info-rows {
+    margin-bottom: 20px;
+  }
+
+  .branch-info-row {
+    font-size: 13px;
+  }
+
+  .branch-actions {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .btn-branch-direction,
+  .btn-branch-call {
+    padding: 12px;
+    font-size: 13px;
+  }
+}

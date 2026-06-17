@@ -1,0 +1,418 @@
+/* Scrolling Transition from Flat Navbar to Floating Pill Layout */
+
+.brand-navbar-wrapper {
+  position: fixed;
+  top: 0; /* Align to top edge in initial state */
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  pointer-events: none; /* Let click actions pass through outside container */
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body.banner-visible .brand-navbar-wrapper {
+  top: 40px; /* Shift down to fit the sticky banner at top */
+}
+
+body.banner-visible .brand-navbar-wrapper.scrolled {
+  top: 0px; /* Reset top to 0 when scrolled/squeezed to prevent empty gap */
+}
+
+/* Container in initial expanded flat state */
+.brand-navbar-container {
+  width: 100%;
+  max-width: 100%;
+  height: 80px;
+  background-color: var(--color-bg); /* Merges seamlessly with page body background */
+  border-bottom: 1px solid rgba(7, 92, 0, 0.08);
+  border-radius: 0;
+  box-shadow: none;
+  pointer-events: auto; /* Re-enable click events inside the navbar container */
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px; /* Initial left/right margins for elements */
+}
+
+/* Scrolled/Squeezed state: morph into floating pill */
+.brand-navbar-wrapper.scrolled {
+  padding-top: 15px; /* Add margin-top dynamically to float the pill */
+}
+
+.brand-navbar-wrapper.scrolled .brand-navbar-container {
+  width: 90%;
+  max-width: 950px;
+  height: 60px;
+  border-radius: 9999px; /* Rounded pill shape */
+  border: 1px solid rgba(7, 92, 0, 0.12);
+  box-shadow: 0 12px 40px rgba(7, 92, 0, 0.08),
+              0 2px 8px rgba(0, 0, 0, 0.02);
+  background-color: rgba(255, 255, 255, 0.92); /* Glassy white contrast */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 0 24px 0 30px; /* Squeezed padding for floating state */
+}
+
+/* Ensure navbar style doesn't shift when overlay/dropdown open states are active */
+.brand-navbar-wrapper.menu-open.scrolled .brand-navbar-container {
+  /* Retain scrolled floating shape */
+}
+
+/* Logo container styling */
+.nav-logo-container {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo-img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  transition: height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.brand-navbar-wrapper.scrolled .nav-logo-img {
+  height: 36px; /* Squeezed logo inside scrolled pill navbar */
+}
+
+/* Hamburger toggle menu */
+.nav-menu-toggle {
+  background: none;
+  border: none;
+  width: 26px;
+  height: 18px;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2.5px 0;
+  z-index: 2005;
+}
+
+.hamburger-line {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-primary);
+  border-radius: 99px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hamburger lines morph to 'X' close icon */
+.nav-menu-toggle.open .line-1 {
+  transform: translateY(4.5px) rotate(45deg);
+}
+
+.nav-menu-toggle.open .line-2 {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.nav-menu-toggle.open .line-3 {
+  transform: translateY(-4.5px) rotate(-45deg);
+}
+
+/* Compact Dropdown Popover Card styling and coordinates */
+.nav-dropdown-menu {
+  position: absolute;
+  top: 85px; /* Offset just below expanded navbar */
+  right: 40px; /* Align with right edge of header contents */
+  width: 240px;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(7, 92, 0, 0.08);
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(7, 92, 0, 0.12),
+              0 4px 16px rgba(0, 0, 0, 0.03);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 1999;
+  
+  /* Initial hidden state */
+  opacity: 0;
+  transform: translateY(-10px) scale(0.95);
+  pointer-events: none;
+  
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              top 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Dynamic dropdown alignment when navbar is scrolled */
+.brand-navbar-wrapper.scrolled .nav-dropdown-menu {
+  top: 65px; /* Pull up closer to the smaller pill header */
+  right: 24px; /* Align with the tighter padding inside pill header */
+}
+
+.nav-dropdown-menu.open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.dropdown-links-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.dropdown-link {
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  text-align: left;
+  cursor: pointer;
+  padding: 4px 0;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-link:hover {
+  color: var(--color-primary);
+  transform: translateX(4px);
+}
+
+/* Green pill CTA inside Dropdown */
+.dropdown-cta-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 9999px;
+  padding: 6px 6px 6px 18px; /* Offset space around circular arrow */
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 12px rgba(7, 92, 0, 0.15);
+  width: 100%;
+}
+
+.dropdown-cta-button .cta-text {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: white;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.dropdown-cta-button .cta-arrow-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: white;
+  color: var(--color-primary);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dropdown-cta-button .cta-arrow-icon {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* CTA hover interaction inside dropdown popover */
+.dropdown-cta-button:hover {
+  background-color: var(--color-accent);
+  box-shadow: 0 6px 16px rgba(7, 92, 0, 0.25);
+}
+
+.dropdown-cta-button:hover .cta-arrow-circle {
+  color: var(--color-accent);
+}
+
+.dropdown-cta-button:hover .cta-arrow-icon {
+  transform: translateX(3px);
+}
+
+.dropdown-cta-button:active {
+  transform: scale(0.97);
+}
+
+/* Responsive adjustment for Mobile viewports */
+@media (max-width: 768px) {
+  .brand-navbar-container {
+    height: 70px;
+    padding: 0 24px; /* Space margins on mobile header */
+  }
+
+  .nav-logo-img {
+    height: 40px;
+  }
+
+  .brand-navbar-wrapper.scrolled .brand-navbar-container {
+    width: 92%;
+    height: 48px; /* Smaller mobile pill */
+    padding: 0 14px 0 16px;
+  }
+
+  .brand-navbar-wrapper.scrolled .nav-logo-img {
+    height: 30px;
+  }
+
+  /* Popover placement mobile adjustments */
+  .nav-dropdown-menu {
+    top: 75px;
+    right: 24px;
+    width: 220px;
+    padding: 20px;
+  }
+
+  .brand-navbar-wrapper.scrolled .nav-dropdown-menu {
+    top: 60px;
+    right: 16px; /* Align with scrolled margin */
+  }
+}
+
+/* Desktop Inline Links Styling */
+.nav-desktop-links {
+  display: none; /* Hidden on mobile by default */
+  gap: 32px;
+  align-items: center;
+}
+
+.nav-desktop-link {
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  padding: 6px 0;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-desktop-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-primary);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-desktop-link:hover {
+  color: var(--color-primary);
+}
+
+.nav-desktop-link:hover::after {
+  width: 100%;
+}
+
+/* Desktop CTA Button Styling */
+.nav-desktop-cta {
+  display: none; /* Hidden on mobile by default */
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 9999px;
+  padding: 6px 6px 6px 18px; /* Offset space around circular arrow */
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 12px rgba(7, 92, 0, 0.15);
+  
+  /* Initial hidden state unscrolled */
+  opacity: 0;
+  transform: translateX(15px) scale(0.95);
+  pointer-events: none;
+}
+
+.nav-desktop-cta .cta-text {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: white;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.nav-desktop-cta .cta-arrow-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: white;
+  color: var(--color-primary);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-desktop-cta .cta-arrow-icon {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hover effects for desktop CTA */
+.nav-desktop-cta:hover {
+  background-color: var(--color-accent);
+  box-shadow: 0 6px 16px rgba(7, 92, 0, 0.25);
+}
+
+.nav-desktop-cta:hover .cta-arrow-circle {
+  color: var(--color-accent);
+}
+
+.nav-desktop-cta:hover .cta-arrow-icon {
+  transform: translateX(3px);
+}
+
+.nav-desktop-cta:active {
+  transform: scale(0.97);
+}
+
+/* Scrolled state desktop CTA trigger */
+.brand-navbar-wrapper.scrolled .nav-desktop-cta {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  pointer-events: auto;
+}
+
+/* Media Query for Desktop viewports */
+@media (min-width: 769px) {
+  .nav-desktop-links {
+    display: flex; /* Show desktop links inline */
+    margin-left: auto;
+    margin-right: 32px;
+  }
+
+  .nav-desktop-cta {
+    display: flex; /* Make CTA display flex (controlled by opacity/pointer-events) */
+  }
+
+  .nav-menu-toggle {
+    display: none; /* Hide hamburger on desktop */
+  }
+
+  .nav-dropdown-menu {
+    display: none; /* Hide dropdown overlay on desktop */
+  }
+}
+

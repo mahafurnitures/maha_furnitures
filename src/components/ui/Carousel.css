@@ -1,0 +1,150 @@
+/* Premium custom carousel styles */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.carousel-content-wrapper {
+  display: flex;
+  width: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE/Edge */
+  gap: 24px;
+  padding: 12px 4px;
+}
+
+.carousel-content-wrapper::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+.carousel-slide-item {
+  min-width: 0;
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+}
+
+@media (min-width: 768px) {
+  .carousel-slide-item {
+    flex: 0 0 calc(50% - 12px); /* 2 items on tablet */
+  }
+}
+
+@media (min-width: 1024px) {
+  .carousel-slide-item {
+    flex: 0 0 calc(33.333% - 16px); /* 3 items on desktop */
+  }
+}
+
+/* Nav buttons overlays */
+.carousel-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.08);
+}
+
+.carousel-nav-btn:hover {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+  box-shadow: 0 8px 32px 0 rgba(7, 92, 0, 0.2);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-nav-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.carousel-nav-btn.prev {
+  left: -20px;
+}
+
+.carousel-nav-btn.next {
+  right: -20px;
+}
+
+/* Hide navigation buttons when disabled/not scrollable */
+.carousel-nav-btn.hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.carousel-nav-btn.visible {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+/* Indicators dots styling */
+.carousel-indicators-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.carousel-indicator-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(7, 92, 0, 0.2);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.carousel-indicator-dot:hover {
+  background: rgba(7, 92, 0, 0.4);
+  transform: scale(1.1);
+}
+
+.carousel-indicator-dot.active {
+  width: 28px;
+  border-radius: 6px;
+  background: var(--color-primary);
+  box-shadow: 0 0 10px rgba(7, 92, 0, 0.3);
+}
+
+/* Scroll-driven scale animation guide triggers for browsers supporting view-timeline */
+@supports ((animation-timeline: view()) and (animation-range: entry)) {
+  @keyframes carousel-item-scale {
+    0% {
+      transform: scale(0.92);
+      opacity: 0.8;
+    }
+    50% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(0.92);
+      opacity: 0.8;
+    }
+  }
+
+  .carousel-slide-item {
+    animation: carousel-item-scale auto linear both;
+    animation-timeline: view(inline);
+  }
+}

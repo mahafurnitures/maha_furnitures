@@ -1,0 +1,17 @@
+.preloader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #E6F3E7; /* Matches the SVG background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.placeholder-svg {
+  max-width: 100%;
+  max-height: 100vh;
+}

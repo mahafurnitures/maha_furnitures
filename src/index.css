@@ -1,0 +1,107 @@
+:root {
+  /* Design Tokens - Colors */
+  --color-primary: #075C00;
+  --color-accent: #438743;
+  --color-sage: #92A28F;
+  --color-bg: #E6F3E7;
+  --color-text-primary: #1D1D1D;
+  --color-text-secondary: #555555;
+
+  /* Typography Fonts */
+  --font-display: 'Aldrich', sans-serif;
+  --font-body: 'Manrope', sans-serif;
+
+  /* Display / XL */
+  --fs-display-xl: 80px;
+  --lh-display-xl: 92px;
+  --ls-display-xl: 0.03em;
+
+  /* Display / L */
+  --fs-display-l: 64px;
+  --lh-display-l: 76px;
+  --ls-display-l: 0.02em;
+
+  /* Heading / H1 */
+  --fs-h1: 48px;
+  --lh-h1: 60px;
+  --ls-h1: 0.01em;
+
+  /* Heading / H2 */
+  --fs-h2: 40px;
+  --lh-h2: 50px;
+  --ls-h2: 0.008em;
+
+  /* Heading / H3 */
+  --fs-h3: 32px;
+  --lh-h3: 40px;
+  --ls-h3: 0.006em;
+
+  /* Heading / H4 */
+  --fs-h4: 24px;
+  --lh-h4: 32px;
+  --ls-h4: 0.005em;
+
+  /* Body / Large */
+  --fs-body-lg: 20px;
+  --lh-body-lg: 34px;
+  --ls-body-lg: 0.004em;
+  --fw-body-lg: 500;
+
+  /* Body / Medium */
+  --fs-body-md: 18px;
+  --lh-body-md: 30px;
+  --ls-body-md: 0.003em;
+  --fw-body-md: 400;
+
+  /* Body / Small */
+  --fs-body-sm: 16px;
+  --lh-body-sm: 26px;
+  --ls-body-sm: 0.002em;
+  --fw-body-sm: 400;
+
+  /* Navigation / Main */
+  --fs-nav: 14px;
+  --ls-nav: 0.05em;
+
+  /* CTA Buttons */
+  --fs-btn: 16px;
+  --ls-btn: 0.04em;
+
+  /* Border Radii */
+  --radius-cards: 20px;
+  --radius-buttons: 12px;
+  --radius-images: 24px;
+
+  /* Shadows */
+  --shadow-premium: 0px 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-size: var(--fs-body-md);
+  line-height: var(--lh-body-md);
+  letter-spacing: var(--ls-body-md);
+  font-weight: var(--fw-body-md);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul, ol {
+  list-style: none;
+}

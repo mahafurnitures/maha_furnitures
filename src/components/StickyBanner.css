@@ -1,0 +1,141 @@
+.sticky-banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--color-primary);
+  color: white;
+  z-index: 2000;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  height: 40px;
+}
+
+.sticky-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.05),
+    transparent
+  );
+  animation: bannerShine 3s infinite;
+  pointer-events: none;
+}
+
+@keyframes bannerShine {
+  0% {
+    left: -100%;
+  }
+  20% {
+    left: 200%;
+  }
+  100% {
+    left: 200%;
+  }
+}
+
+.sticky-banner.hidden {
+  transform: translateY(-100%);
+}
+
+.sticky-banner.visible {
+  transform: translateY(0);
+}
+
+.sticky-banner-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+  height: 100%;
+  gap: 12px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sticky-banner-badge {
+  background-color: var(--color-accent);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: var(--font-display, 'Aldrich', sans-serif);
+}
+
+.sticky-banner-text {
+  font-family: var(--font-body, 'Manrope', sans-serif);
+  font-size: 0.85rem;
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.sticky-banner-highlight {
+  font-weight: 700;
+  color: #fff;
+}
+
+.sticky-banner-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-family: var(--font-body, 'Manrope', sans-serif);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+  transition: opacity 0.2s;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.4);
+  text-underline-offset: 4px;
+}
+
+.sticky-banner-btn:hover {
+  opacity: 0.8;
+}
+
+.sticky-banner-arrow {
+  transition: transform 0.2s;
+  font-size: 0.9rem;
+}
+
+.sticky-banner-btn:hover .sticky-banner-arrow {
+  transform: translateX(4px);
+}
+
+@media (max-width: 768px) {
+  .sticky-banner-content {
+    padding: 0 16px;
+    gap: 8px;
+  }
+  
+  .sticky-banner-badge {
+    display: none;
+  }
+  
+  .sticky-banner-text {
+    font-size: 0.75rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .sticky-banner-btn {
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
+}
