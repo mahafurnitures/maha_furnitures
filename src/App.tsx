@@ -12,6 +12,7 @@ import CustomizedSection from './components/CustomizedSection';
 import ManufacturingSection from './components/ManufacturingSection';
 import TrustSection from './components/TrustSection';
 import ReviewsSection from './components/ReviewsSection';
+import FaqSection from './components/FaqSection';
 import BranchesSection from './components/BranchesSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
@@ -83,6 +84,7 @@ function App() {
         <ManufacturingSection />
         <TrustSection />
         <ReviewsSection />
+        <FaqSection />
         <BranchesSection />
         <ContactSection />
       </main>
