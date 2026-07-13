@@ -20,8 +20,8 @@ export default function HeroSection({ onExploreClick }: HeroSectionProps) {
     const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
     // Initial states
-    gsap.set(founderRef.current, { y: 150, opacity: 0, scale: 0.95 });
-    gsap.set(titleRef.current, { y: -50, opacity: 0 });
+    gsap.set(founderRef.current, { y: 40, opacity: 0, scale: 0.98 });
+    gsap.set(titleRef.current, { y: -20, opacity: 0 });
     gsap.set(leftTextRef.current, { x: -100, opacity: 0 });
     gsap.set(rightTextRef.current, { x: 100, opacity: 0 });
     if (iconsRef.current) {
