@@ -1,4 +1,4 @@
-/* Book Site Visit Form Section */
+/* Book Site Visit Form Section Simplified to Call CTA */
 .contact-section {
   padding: 100px 0;
   background-color: #f3f9f4;
@@ -14,175 +14,102 @@
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: 24px;
-  padding: 48px;
+  padding: 60px 48px;
   width: 100%;
-  max-width: 680px;
+  max-width: 620px;
   box-shadow: 0 20px 50px rgba(7, 92, 0, 0.08);
   margin: 0 24px;
+  text-align: center;
 }
 
 .contact-header {
-  text-align: center;
-  margin-bottom: 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0;
 }
 
 .contact-desc {
   font-family: var(--font-body);
-  font-size: 15px;
-  line-height: 24px;
+  font-size: 15.5px;
+  line-height: 26px;
   color: var(--color-text-secondary);
-  margin-top: 8px;
+  margin: 12px 0 36px 0;
+  max-width: 480px;
 }
 
-.booking-form {
+/* Call Button Styling */
+.contact-call-action {
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  justify-content: center;
 }
 
-.form-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.form-group.full-width {
-  grid-column: 1 / -1;
-}
-
-.form-label {
+.btn-section-call {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background-color: var(--color-primary);
+  color: white !important;
   font-family: var(--font-body);
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--color-text-primary);
-}
-
-.form-input,
-.form-select,
-.form-textarea {
-  width: 100%;
-  padding: 14px 18px;
-  border-radius: 10px;
-  border: 1px solid rgba(7, 92, 0, 0.15);
-  background: white;
-  font-family: var(--font-body);
-  font-size: 15px;
-  color: var(--color-text-primary);
-  outline: none;
-  transition: all 0.3s ease;
-}
-
-.form-input:focus,
-.form-select:focus,
-.form-textarea:focus {
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(7, 92, 0, 0.08);
-}
-
-.btn-submit-form {
-  margin-top: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  background-color: var(--color-primary);
-  color: white;
-  font-family: var(--font-body);
-  font-size: 15px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  padding: 16px 28px;
-  border-radius: 10px;
+  padding: 18px 40px;
+  border-radius: 12px;
   border: none;
   cursor: pointer;
-  box-shadow: 0 4px 14px rgba(7, 92, 0, 0.2);
-  transition: all 0.3s ease;
+  box-shadow: 0 8px 24px rgba(7, 92, 0, 0.25);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
 }
 
-.btn-submit-form:hover {
+.btn-section-call:hover {
   background-color: var(--color-accent);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(7, 92, 0, 0.25);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(226, 178, 91, 0.3);
 }
 
-.form-success-container {
-  text-align: center;
-  padding: 32px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
+.btn-section-call:active {
+  transform: translateY(-1px);
 }
 
-.success-icon {
-  color: var(--color-primary);
-  animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.phone-icon-bounce {
+  animation: phoneCTAIconBounce 2s infinite ease-in-out;
 }
 
-@keyframes scaleIn {
-  from {
-    transform: scale(0.6);
-    opacity: 0;
+@keyframes phoneCTAIconBounce {
+  0%, 100% {
+    transform: rotate(0) scale(1);
   }
-  to {
-    transform: scale(1);
-    opacity: 1;
+  50% {
+    transform: rotate(15deg) scale(1.15);
   }
 }
 
-.form-success-container h3 {
-  font-family: var(--font-display);
-  font-size: 24px;
-  color: var(--color-primary);
-}
-
-.form-success-container p {
-  font-family: var(--font-body);
-  font-size: 15px;
-  line-height: 24px;
-  color: var(--color-text-secondary);
-  max-width: 400px;
-}
-
-/* Booking Form on Mobile */
+/* Responsiveness */
 @media (max-width: 768px) {
   .contact-section {
     padding: 60px 0;
   }
 
   .contact-glass-card {
-    padding: 24px 20px;
+    padding: 40px 24px;
     border-radius: 18px;
+    margin: 0 16px;
   }
 
   .contact-desc {
-    font-size: 13.5px;
-    line-height: 20px;
-  }
-
-  .form-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .form-input,
-  .form-select,
-  .form-textarea {
-    padding: 12px 14px;
     font-size: 14.5px;
+    line-height: 22px;
+    margin: 10px 0 28px 0;
   }
 
-  .btn-submit-form {
-    padding: 14px 20px;
-    font-size: 14px;
+  .btn-section-call {
+    width: 100%;
+    padding: 16px 20px;
+    font-size: 15px;
   }
 }

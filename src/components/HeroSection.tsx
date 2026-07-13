@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
+import { Award, Users, Phone } from 'lucide-react';
 import founderImage from '../assets/new_founder.png';
 import './HeroSection.css';
 
@@ -54,6 +55,16 @@ export default function HeroSection({ onExploreClick }: HeroSectionProps) {
         <div className="brave-text-header" ref={titleRef}>
           <h1 className="brave-headline">Maha Furnitures</h1>
           <p className="brave-subtitle">BHOOMESH - Metpally | CHARY - Jagtial</p>
+          <div className="brave-badges-container">
+            <div className="brave-badge">
+              <Award className="badge-icon" size={18} />
+              <span className="badge-text">7+ Years Experience</span>
+            </div>
+            <div className="brave-badge">
+              <Users className="badge-icon" size={18} />
+              <span className="badge-text">1,00,000+ Happy Customers</span>
+            </div>
+          </div>
         </div>
 
         {/* Lower Content */}
@@ -71,10 +82,7 @@ export default function HeroSection({ onExploreClick }: HeroSectionProps) {
             <button className="brave-cta-btn" onClick={onExploreClick}>
               BOOK SITE VISIT
               <span className="brave-arrow-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14"></path>
-                  <path d="M12 5l7 7-7 7"></path>
-                </svg>
+                <Phone size={16} />
               </span>
             </button>
           </div>

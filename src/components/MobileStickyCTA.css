@@ -1,0 +1,60 @@
+/* Mobile Sticky Call CTA */
+.mobile-sticky-cta {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(7, 92, 0, 0.12);
+  z-index: 999;
+  box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.btn-mobile-call-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: var(--color-primary, #075C00);
+  color: white !important;
+  font-family: var(--font-body, inherit);
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 14px 0;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(7, 92, 0, 0.25);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-mobile-call-cta:active {
+  background-color: var(--color-accent, #E2B25B);
+  transform: scale(0.98);
+}
+
+.phone-icon-pulse {
+  animation: mobilePhonePulse 1.8s infinite ease-in-out;
+}
+
+@keyframes mobilePhonePulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+/* Show only on mobile screens */
+@media (max-width: 768px) {
+  .mobile-sticky-cta {
+    display: block;
+  }
+}

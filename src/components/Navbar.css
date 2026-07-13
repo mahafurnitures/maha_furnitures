@@ -18,7 +18,7 @@ body.banner-visible .brand-navbar-wrapper {
 }
 
 body.banner-visible .brand-navbar-wrapper.scrolled {
-  top: 0px; /* Reset top to 0 when scrolled/squeezed to prevent empty gap */
+  top: 40px; /* Stay below the fixed banner */
 }
 
 /* Container in initial expanded flat state */
