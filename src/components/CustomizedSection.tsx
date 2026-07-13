@@ -50,7 +50,24 @@ export default function CustomizedSection() {
     }
   ];
 
+  const headerRef = useRef<HTMLDivElement>(null);
+
   useGSAP(() => {
+    // Reveal header
+    gsap.fromTo(headerRef.current,
+      { y: 40, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        scrollTrigger: {
+          trigger: headerRef.current,
+          start: 'top 85%',
+          toggleActions: 'play none none none'
+        }
+      }
+    );
+
     const panels = gsap.utils.toArray<HTMLElement>('.customized-panel');
     if (panels.length === 0) return;
 
@@ -105,7 +122,7 @@ export default function CustomizedSection() {
 
   return (
     <section className="customized-section" id="about" ref={containerRef}>
-      <div className="customized-intro-header">
+      <div className="customized-intro-header" ref={headerRef}>
         <span className="section-subtitle">OUR BESPOKE CRAFT</span>
         <h2 className="section-title">Customized Furniture Made Easy</h2>
       </div>

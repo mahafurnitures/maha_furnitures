@@ -1,5 +1,5 @@
 .sticky-banner {
-  position: absolute;
+  position: fixed; /* Always fixed at the top of the viewport */
   top: 0;
   left: 0;
   width: 100%;
@@ -56,9 +56,18 @@
   justify-content: center;
   padding: 0 24px;
   height: 100%;
-  gap: 12px;
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.sticky-banner-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  gap: 12px;
 }
 
 .sticky-banner-badge {
@@ -71,6 +80,7 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-family: var(--font-display, 'Aldrich', sans-serif);
+  flex-shrink: 0;
 }
 
 .sticky-banner-text {
@@ -79,6 +89,9 @@
   margin: 0;
   font-weight: 400;
   letter-spacing: 0.02em;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .sticky-banner-highlight {
@@ -102,6 +115,7 @@
   text-decoration: underline;
   text-decoration-color: rgba(255, 255, 255, 0.4);
   text-underline-offset: 4px;
+  flex-shrink: 0;
 }
 
 .sticky-banner-btn:hover {
@@ -119,8 +133,11 @@
 
 @media (max-width: 768px) {
   .sticky-banner-content {
-    padding: 0 16px;
-    gap: 8px;
+    padding: 0 8px;
+  }
+  
+  .sticky-banner-slide {
+    gap: 6px;
   }
   
   .sticky-banner-badge {
@@ -128,14 +145,10 @@
   }
   
   .sticky-banner-text {
-    font-size: 0.75rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-size: 0.72rem;
   }
   
   .sticky-banner-btn {
-    font-size: 0.75rem;
-    white-space: nowrap;
+    font-size: 0.72rem;
   }
 }

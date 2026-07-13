@@ -8,9 +8,9 @@
 
 .branches-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  max-width: 1100px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 40px;
 }
@@ -24,6 +24,7 @@
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .branch-card:hover {
@@ -32,9 +33,52 @@
   box-shadow: 0 15px 35px rgba(7, 92, 0, 0.08);
 }
 
+/* Featured / Primary Store highlight styles */
+.branch-card.featured {
+  border: 2px solid #E2B25B;
+  box-shadow: 0 15px 40px rgba(226, 178, 91, 0.12), var(--shadow-premium);
+  background-color: #ffffff;
+}
+
+.branch-card.featured:hover {
+  border-color: #e3a832;
+  box-shadow: 0 20px 50px rgba(226, 178, 91, 0.2), var(--shadow-premium);
+}
+
+.branch-featured-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: linear-gradient(135deg, #E2B25B 0%, #B58C3D 100%);
+  color: white;
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 5px 12px;
+  border-radius: 50px;
+  box-shadow: 0 4px 10px rgba(226, 178, 91, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  z-index: 5;
+}
+
+/* Factory / Workshop specific styles */
+.branch-card.factory {
+  background-color: #fafbfb;
+  border: 1px dashed rgba(7, 92, 0, 0.15);
+}
+
+.factory-label {
+  background-color: rgba(85, 85, 85, 0.08) !important;
+  color: #555555 !important;
+}
+
 .branch-image-wrapper {
   position: relative;
-  height: 240px;
+  height: 220px;
   width: 100%;
   overflow: hidden;
 }
@@ -67,7 +111,7 @@
 }
 
 .branch-details {
-  padding: 28px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -78,18 +122,20 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 12px;
+  gap: 8px;
 }
 
 .branch-name {
   font-family: var(--font-display);
-  font-size: 22px;
+  font-size: 20px;
   color: var(--color-primary);
   text-transform: uppercase;
+  margin: 0;
 }
 
 .branch-year {
   font-family: var(--font-body);
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -97,21 +143,23 @@
   background: rgba(7, 92, 0, 0.08);
   padding: 4px 8px;
   border-radius: 6px;
+  white-space: nowrap;
 }
 
 .branch-address {
   font-family: var(--font-body);
-  font-size: 14.5px;
+  font-size: 14px;
   line-height: 22px;
   color: var(--color-text-secondary);
-  margin-bottom: 20px;
+  margin-bottom: 16px;
+  min-height: 44px; /* Ensure vertical grid alignment */
 }
 
 .branch-info-rows {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
   border-top: 1px solid rgba(7, 92, 0, 0.06);
   padding-top: 16px;
 }
@@ -121,12 +169,13 @@
   align-items: center;
   gap: 10px;
   font-family: var(--font-body);
-  font-size: 14px;
+  font-size: 13.5px;
   color: var(--color-text-secondary);
 }
 
 .info-icon {
   color: var(--color-primary);
+  flex-shrink: 0;
 }
 
 .info-link {
@@ -141,8 +190,8 @@
 
 .branch-actions {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 12px;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 10px;
   margin-top: auto;
 }
 
@@ -150,16 +199,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 6px;
   background-color: var(--color-primary);
   color: white !important;
   font-family: var(--font-body);
-  font-size: 13.5px;
+  font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.02em;
-  padding: 12px 16px;
-  border-radius: 10px;
+  padding: 12px 14px;
+  border-radius: 8px;
   box-shadow: 0 4px 10px rgba(7, 92, 0, 0.15);
   transition: all 0.3s ease;
 }
@@ -173,17 +222,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 6px;
   background-color: transparent;
   color: var(--color-primary) !important;
   border: 1.5px solid var(--color-primary);
   font-family: var(--font-body);
-  font-size: 13.5px;
+  font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.02em;
-  padding: 10.5px 16px;
-  border-radius: 10px;
+  padding: 10.5px 14px;
+  border-radius: 8px;
   transition: all 0.3s ease;
 }
 
@@ -192,7 +241,15 @@
   transform: translateY(-2px);
 }
 
-/* Branches on Mobile */
+/* Responsiveness */
+@media (max-width: 1024px) {
+  .branches-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    padding: 0 24px;
+  }
+}
+
 @media (max-width: 768px) {
   .branches-section {
     padding: 60px 0;
@@ -221,6 +278,7 @@
     font-size: 13.5px;
     line-height: 20px;
     margin-bottom: 16px;
+    min-height: 0;
   }
 
   .branch-info-rows {
