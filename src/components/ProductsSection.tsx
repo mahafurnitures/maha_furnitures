@@ -14,7 +14,7 @@ const subcategoryImages: Record<string, string> = {
   'Electrical Recliner': '/mahaFurnitureImages/electricalRecliner..jpg',
   'RRR Recliner': '/mahaFurnitureImages/RRR recliners.jpg',
   'Sofa Cum Bed': '/mahaFurnitureImages/SofacomBed.jpg',
-  'Lounger Model': '/mahaFurnitureImages/loungermodel.jpg',
+  'Lounger Model': '/mahaFurnitureImages/loungermodel.png',
   'Wooden Sofa': '/mahaFurnitureImages/WoddenSofa.jpg',
   'Customized Sofa': '/mahaFurnitureImages/customizedsofa.jpg',
 
