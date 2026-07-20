@@ -5,62 +5,62 @@ import './ProductsSection.css';
 // Curated mappings from subcategory title to high-quality Unsplash image URLs
 const subcategoryImages: Record<string, string> = {
   // Sofas & Living Room
-  'Head Rest Model': 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=600&auto=format&fit=crop',
-  'L Shape Sofa': 'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80&w=600&auto=format&fit=crop',
-  'Corner Sofa': 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=600&auto=format&fit=crop',
-  'Pillow Model': 'https://images.unsplash.com/photo-1540518614846-7eded433c457?q=80&w=600&auto=format&fit=crop',
-  'Fibre Model': 'https://images.unsplash.com/photo-1601050690597-df056fb4ce78?q=80&w=600&auto=format&fit=crop',
-  'Manual Recliner': 'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=600&auto=format&fit=crop',
-  'Electrical Recliner': 'https://images.unsplash.com/photo-1592078615290-033ee584e267?q=80&w=600&auto=format&fit=crop',
-  'RRR Recliner': 'https://images.unsplash.com/photo-1589384267710-7a170981ca78?q=80&w=600&auto=format&fit=crop',
-  'Sofa Cum Bed': 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=600&auto=format&fit=crop',
-  'Lounger Model': 'https://images.unsplash.com/photo-1512211878902-601e8ab66e01?q=80&w=600&auto=format&fit=crop',
-  'Wooden Sofa': 'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?q=80&w=600&auto=format&fit=crop',
-  'Customized Sofa': 'https://images.unsplash.com/photo-1506898667547-42e22a46e125?q=80&w=600&auto=format&fit=crop',
+  'Head Rest Model': '/mahaFurnitureImages/headrestsofa2.jpg',
+  'L Shape Sofa': '/mahaFurnitureImages/LshapeSofa1.avif',
+  'Corner Sofa': '/mahaFurnitureImages/CornerSOfa.jpg',
+  'Pillow Model': '/mahaFurnitureImages/pillomodelSofa.jpg',
+  'Fibre Model': '/mahaFurnitureImages/FiberModelSofa.jpg',
+  'Manual Recliner': '/mahaFurnitureImages/manualRecliner.jpg',
+  'Electrical Recliner': '/mahaFurnitureImages/electricalRecliner..jpg',
+  'RRR Recliner': '/mahaFurnitureImages/RRR recliners.jpg',
+  'Sofa Cum Bed': '/mahaFurnitureImages/SofacomBed.jpg',
+  'Lounger Model': '/mahaFurnitureImages/loungermodel.jpg',
+  'Wooden Sofa': '/mahaFurnitureImages/WoddenSofa.jpg',
+  'Customized Sofa': '/mahaFurnitureImages/customizedsofa.jpg',
 
   // Beds & Bedroom
-  'Beds': 'https://images.unsplash.com/photo-1505693395321-883724634266?q=80&w=600&auto=format&fit=crop',
-  'Diwan Cots': 'https://images.unsplash.com/photo-1598928506311-c55ded91a20c?q=80&w=600&auto=format&fit=crop',
-  'Adjustable Plywood Beds': 'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=600&auto=format&fit=crop',
+  'Beds': '/mahaFurnitureImages/beds.jpg',
+  'Diwan Cots': '/mahaFurnitureImages/DiwanCots.jpg',
+  'Adjustable Plywood Beds': '/mahaFurnitureImages/AdjustableFlywoodBeds.jpg',
 
   // Premium Dining
-  'Dining Marble': 'https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?q=80&w=600&auto=format&fit=crop',
-  'Dining Tiles': 'https://images.unsplash.com/photo-1617806118233-18e1db207f62?q=80&w=600&auto=format&fit=crop',
-  'Premium Dining Sets': 'https://images.unsplash.com/photo-1530018607912-eff2daa1bac4?q=80&w=600&auto=format&fit=crop',
+  'Dining Marble': "/mahaFurnitureImages/marbelDiningTable'.jpg",
+  'Dining Tiles': '/mahaFurnitureImages/TilesDiningTable.jpg',
+  'Premium Dining Sets': '/mahaFurnitureImages/premimum dining sets.jpg',
 
   // Home Decor & Gift Items
-  'Wooden Mandir': 'https://images.unsplash.com/photo-1609137144813-7d8858276f62?q=80&w=600&auto=format&fit=crop',
-  'Bespoke Wall Shelves': 'https://images.unsplash.com/photo-1595428774223-ef52624120d2?q=80&w=600&auto=format&fit=crop',
-  'Premium Mirrors': 'https://images.unsplash.com/photo-1618220179428-22790b461013?q=80&w=600&auto=format&fit=crop',
-  'Decorative Handicrafts': 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=600&auto=format&fit=crop',
+  'Wooden Mandir': '/mahaFurnitureImages/woddenmandhir.jpg',
+  'Bespoke Wall Shelves': '/mahaFurnitureImages/BespokeWallShelves.jpg',
+  'Premium Mirrors': '/mahaFurnitureImages/premimum mirror images.jpg',
+  'Decorative Handicrafts': '/mahaFurnitureImages/decorativehandycrafts.jpg',
 
   // Centre Tables
-  'Premium Centre Tables': 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?q=80&w=600&auto=format&fit=crop',
-  'Coffee Tables': 'https://images.unsplash.com/photo-1565793298595-6a879b1d9492?q=80&w=600&auto=format&fit=crop',
-  'Nesting Tables': 'https://images.unsplash.com/photo-1581428982868-e410dd047a90?q=80&w=600&auto=format&fit=crop',
+  'Premium Centre Tables': '/mahaFurnitureImages/premiumCenterTables.jpg',
+  'Coffee Tables': '/mahaFurnitureImages/Coffietables.jpg',
+  'Nesting Tables': '/mahaFurnitureImages/nestingTables.jpg',
 
   // Office & Study
-  'Office Executive Chairs': 'https://images.unsplash.com/photo-1580481072645-022f9a6dbf27?q=80&w=600&auto=format&fit=crop',
-  'Visitor Seating': 'https://images.unsplash.com/photo-1505797149-43b0069ec26b?q=80&w=600&auto=format&fit=crop',
-  'Ergonomic Study Chairs': 'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?q=80&w=600&auto=format&fit=crop',
-  'Jhoolas': 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=600&auto=format&fit=crop',
+  'Office Executive Chairs': '/mahaFurnitureImages/OfficeExecutiveChairs.jpg',
+  'Visitor Seating': '/mahaFurnitureImages/visitorSeating.jpg',
+  'Ergonomic Study Chairs': '/mahaFurnitureImages/ErgonomicsChairs.jpg',
+  'Jhoolas': '/mahaFurnitureImages/jholas.jpg',
 
   // Wardrobes & Dressing
-  'Dressing Table': 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=600&auto=format&fit=crop',
-  'Master Wardrobes': 'https://images.unsplash.com/photo-1558882224-dda166733360?q=80&w=600&auto=format&fit=crop',
-  'Modular Cupboards': 'https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?q=80&w=600&auto=format&fit=crop',
-  'Beeruva': 'https://images.unsplash.com/photo-1597072689227-8882273e8f6a?q=80&w=600&auto=format&fit=crop',
+  'Dressing Table': '/mahaFurnitureImages/DressingTables.jpg',
+  'Master Wardrobes': '/mahaFurnitureImages/masterWadrobes.jpg',
+  'Modular Cupboards': '/mahaFurnitureImages/modularCupBoards.jpg',
+  'Beeruva': '/mahaFurnitureImages/Beeruva.jpg',
 
   // Kids Furniture
-  'Kids Study Tables': 'https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?q=80&w=600&auto=format&fit=crop',
-  'Bunk Beds': 'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=600&auto=format&fit=crop',
-  'Toy Storage Racks': 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=600&auto=format&fit=crop',
+  'Kids Study Tables': '/mahaFurnitureImages/KidsStidyTable.jpg',
+  'Bunk Beds': '/mahaFurnitureImages/BunkBeds.jpg',
+  'Toy Storage Racks': "/mahaFurnitureImages/ToyStorageRacks'.jpg",
 
   // Utility Furniture
-  'Plastic Dining Tables': 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=600&auto=format&fit=crop',
-  'Lightweight Study Chairs': 'https://images.unsplash.com/photo-1592078615290-033ee584e267?q=80&w=600&auto=format&fit=crop',
-  'Utility Folding Desks': 'https://images.unsplash.com/photo-1518051870910-a46e5449d16d?q=80&w=600&auto=format&fit=crop',
-  'School Furniture': 'https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=600&auto=format&fit=crop',
+  'Plastic Dining Tables': '/mahaFurnitureImages/PlasticDiningTables.jpg',
+  'Lightweight Study Chairs': '/mahaFurnitureImages/LIghtWeightStudyTables.jpg',
+  'Utility Folding Desks': '/mahaFurnitureImages/UtilityFoaldingDesks.jpg',
+  'School Furniture': '/mahaFurnitureImages/SchoolFurnitures.jpg',
 };
 
 interface Category {

@@ -103,9 +103,6 @@ export default function BranchesSection() {
           <div key={branch.id} id={branch.id} className={`branch-card ${branch.isPrimary ? 'featured' : ''} ${branch.isFactory ? 'factory' : ''}`}>
             <div className="branch-image-wrapper">
               <img src={branch.image} alt={branch.name} className="branch-img" />
-              <span className="branch-tag">
-                {branch.tag}
-              </span>
               {branch.isPrimary && (
                 <div className="branch-featured-badge">
                   <Star size={10} fill="currentColor" />
